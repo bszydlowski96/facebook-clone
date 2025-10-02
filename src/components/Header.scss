@@ -1,0 +1,67 @@
+@import '../styles/colors.scss';
+
+.header {
+    background-color: $facebook-blue;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+
+
+    &__left {
+        flex: 1;
+    }
+
+    &__logo {
+        color: $white;
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    &__center {
+        flex: 2;
+        text-align: center;
+    }
+
+    &__search {
+        background-color: $facebook-gray;
+        border: none;
+        border-radius: 20px;
+        padding: 8px 16px;
+        width: 240px;
+        font-size: 14px;
+
+        &::placeholder {
+            color: $text-secondary;
+        }
+
+    }
+
+
+
+
+
+&__right {
+    flex: 1;
+    text-align: right;
+
+}
+
+&__button {
+    background-color: transparent;
+    border: 1px solid $white;
+    color: $white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+}
