@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
 import Post from "./components/Post";
 import "./App.scss";
 
@@ -20,6 +21,7 @@ function App() {
   return (
     <div className="app">
       <Header />
+      <Sidebar />
       <main className="app__content">
         <h2>Facebook Clone</h2>
         <Post
