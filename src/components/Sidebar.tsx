@@ -7,16 +7,20 @@ interface SidebarItem {
   notification?: number;
 }
 
-const Sidebar = () => {
+interface SidebarProps {
+  isMobileMenuOpen?: boolean;
+}
+
+const Sidebar = ({ isMobileMenuOpen = false }: SidebarProps) => {
   const menuItems: SidebarItem[] = [
-    { icon: "👥", label: "Znajomi", notification: 3 },
-    { icon: "📄", label: "Strony" },
-    { icon: "👥", label: "Grupy", notification: 12 },
+    { icon: "👥", label: "Friends", notification: 3 },
+    { icon: "📄", label: "Pages" },
+    { icon: "👥", label: "Groups", notification: 12 },
     { icon: "🛍️", label: "Marketplace" },
     { icon: "📺", label: "Watch" },
-    { icon: "📅", label: "Wydarzenia", notification: 2 },
-    { icon: "⭐", label: "Ulubione" },
-    { icon: "🎮", label: "Gry" },
+    { icon: "📅", label: "Events", notification: 2 },
+    { icon: "⭐", label: "Favorites" },
+    { icon: "🎮", label: "Gaming" },
   ];
 
   const shortcuts = [
@@ -26,15 +30,18 @@ const Sidebar = () => {
   ];
 
   return (
-    <aside className="sidebar">
+    <aside
+      className={`sidebar ${isMobileMenuOpen ? "sidebar--mobile-open" : ""}`}
+    >
       <div className="sidebar__user">
         <img
           src="https://picsum.photos/36/36"
-          alt="Twój profil"
+          alt="Your profile"
           className="sidebar__user-avatar"
         />
-        <span className="sidebar__user-name">Bartosz Szydłowski</span>
+        <span className="sidebar__user-name">Bartosz Szydlowski</span>
       </div>
+
       <div className="sidebar__section">
         {menuItems.map((item, index) => (
           <div key={index} className="sidebar__item">
@@ -46,9 +53,11 @@ const Sidebar = () => {
           </div>
         ))}
       </div>
+
       <hr className="sidebar__divider" />
+
       <div className="sidebar__section">
-        <h3 className="sidebar__heading">Twoje skróty</h3>
+        <h3 className="sidebar__heading">Your shortcuts</h3>
         {shortcuts.map((shortcut, index) => (
           <div key={index} className="sidebar__item">
             <span className="sidebar__icon">{shortcut.icon}</span>
@@ -56,7 +65,6 @@ const Sidebar = () => {
           </div>
         ))}
       </div>
-      \
     </aside>
   );
 };

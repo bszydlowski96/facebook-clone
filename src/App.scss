@@ -1,6 +1,8 @@
 // Import kolorów
 @import './styles/colors.scss';
 
+$mobile: 768px;
+
 .app {
   background-color: $facebook-gray;
   min-height: 100vh;
@@ -8,12 +10,28 @@
 }
 
 .app__content {
-  margin-left: 320px;                  // 280px sidebar + 40px odstęp
-  padding-top: 72px;                   // 56px header + 16px odstęp
-  padding-left: 16px;                  // odstęp od lewej
-  padding-right: 16px;                 // odstęp od prawej
-  padding-bottom: 16px;                // odstęp od dołu
-  max-width: 680px;                    // maksymalna szerokość postów
+
+  margin-left: 320px; 
+  padding-top: 72px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 16px;
+  max-width: 680px;
+  
+
+  @media (max-width: $mobile) {
+    margin-left: 0;
+    padding: 72px 16px 16px 16px;
+    max-width: 100%;
+  }
+
+  margin-left: 320px;                 
+  padding-top: 72px;                
+  padding-left: 16px;              
+  padding-right: 16px;           
+  padding-bottom: 16px;             
+  max-width: 680px;                    
+
   
   h2 {
     color: $text-primary;
