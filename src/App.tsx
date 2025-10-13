@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
 import Post from "./components/Post";
 import "./App.scss";
 
 function App() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   const samplePost = {
     author: {
-      name: "Bartosz Szydłowski",
+      name: "Bartosz Szydlowski",
       avatar: "https://picsum.photos/40/40",
-      time: "2 godziny temu",
+      time: "2 hours ago",
     },
     content:
-      "Programowanie to dla mnie trochę jak układanie klocków LEGO — tylko że w kodzie. Każdy dzień to nowe zagadki, błędy i momenty „aha!”. Lubię to uczucie, kiedy coś w końcu działa po godzinach kombinowania. Wtedy nawet zwykły potrafi dać satysfakcję większą niż kawa z rana ☕💻",
+      "Programming is like building with LEGO blocks, but in code. Every day brings new puzzles, bugs, and aha moments.",
     image: "https://picsum.photos/1920/1080",
     likes: 12,
     comments: 3,
@@ -19,7 +26,11 @@ function App() {
 
   return (
     <div className="app">
-      <Header />
+      <Header
+        isMobileMenuOpen={isMobileMenuOpen}
+        onToggleMenu={toggleMobileMenu}
+      />
+      <Sidebar isMobileMenuOpen={isMobileMenuOpen} />
       <main className="app__content">
         <h2>Facebook Clone</h2>
         <Post
@@ -34,9 +45,9 @@ function App() {
           author={{
             name: "Wanda Krych",
             avatar: "https://picsum.photos/40/40",
-            time: "5 godzin temu",
+            time: "5 hours ago",
           }}
-          content="Kto też kocha programowanie?"
+          content="Who else loves programming?"
           likes={8}
           comments={1}
         />
