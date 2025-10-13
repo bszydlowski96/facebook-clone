@@ -26,11 +26,16 @@ function App() {
 
   return (
     <div className="app">
+
       <Header
         isMobileMenuOpen={isMobileMenuOpen}
         onToggleMenu={toggleMobileMenu}
       />
       <Sidebar isMobileMenuOpen={isMobileMenuOpen} />
+
+      <Header />
+      <Sidebar />
+
       <main className="app__content">
         <h2>Facebook Clone</h2>
         <Post
